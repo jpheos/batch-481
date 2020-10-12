@@ -7,9 +7,9 @@ PRODUCTS = {
   "asparagus" => 9
 }
 
-# CART = Hash.new(0)
+CART = Hash.new(0)
 
-CART = {"banana" => 2, "kiwi" => 2, "mango" => 1 }
+# CART = {"banana" => 2, "kiwi" => 2, "mango" => 1 }
 
 # 0
 
@@ -31,6 +31,12 @@ def welcome
   puts "> --------------------"
 end
 
+def quantity_choice
+  puts "> How many?"
+  print "> "
+  gets.chomp.to_i
+end
+
 def select_products
   continue = true
   while continue
@@ -41,7 +47,7 @@ def select_products
       continue = false
     elsif PRODUCTS.key? response
       puts "je dois bien ajouter mon item"
-      CART[response] += 1
+      CART[response] += quantity_choice
     else
       puts "> Sorry, we don't have #{response} today.."
     end
@@ -50,14 +56,20 @@ end
 
 def bill
   total = 0
-  CART.each do |product, quantity|
-    total += PRODUCTS[product] * quantity
-  end
+
   puts "> -------BILL---------"
+  CART.each do |product, quantity|
+    price = PRODUCTS[product]
+    sub_total = price * quantity
+    total += sub_total
+    puts "> #{product}: #{quantity} X #{price}€ = #{sub_total}€"
+  end
   puts "> TOTAL: #{total}€"
   puts "> --------------------"
 end
 
-# welcome
-# select_products
+welcome
+select_products
 bill
+
+
