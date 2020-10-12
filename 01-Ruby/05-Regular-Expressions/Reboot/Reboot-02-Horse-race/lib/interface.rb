@@ -16,27 +16,55 @@
 # 4. Print
 #   - puts
 
-horses = %W[toto titi tata]
+HORSES = %W[toto titi tata alfred aa bb cc dd ee]
+
+
+def print_result(win)
+  if win
+    puts "WIN"
+  else
+    puts "LOOSER"
+  end
+end
+
+def user_choice
+  HORSES.each_with_index do |horse, i|
+    puts "#{i + 1} - #{horse}"
+  end
+  puts "your choice?"
+  print "> "
+  gets.chomp.to_i - 1
+end
+
+def play?
+  choice = user_choice
+  winner = rand(HORSES.size)
+  win = choice == winner
+  print_result(win)
+  win
+end
+
+def continue?(balance)
+  return false if balance < 10
+
+  puts "Do you want continue to play? [Y/N]"
+  gets.chomp == 'Y'
+end
+
+def print_balance(balance)
+  puts "Your balance: #{balance}€"
+end
+
+balance = 20
+running = true
 
 puts "Welcome!!!"
 
-horses.each_with_index do |horse, i|
-  puts "#{i + 1} - #{horse}"
+while running
+  win = play?
+  balance += win ? 40 : -10
+  print_balance(balance)
+  running = continue?(balance)
 end
 
-puts "your choice?"
-print "> "
-
-choice = gets.chomp.to_i - 1
-
-winner = rand(horses.size)
-
-
-if choice == winner
-  puts "WIN"
-else
-  puts "LOOSER"
-end
-
-
-
+puts "bye bye"
