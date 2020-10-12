@@ -1,11 +1,9 @@
-# TODO: you can build your instacart program here!
-
 PRODUCTS = {
-  "kiwi" => 1.25,
-  "banana" => 0.5,
-  "mango" => 4,
-  "asparagus" => 9
-}
+  'kiwi' => { price: 1.25, stock: 5 },
+  'banana' => { price: 0.5, stock: 4 },
+  'mango' => { price: 4, stock: 1 },
+  'asparagus' => { price: 9, stock: 5 }
+}.freeze
 
 CART = Hash.new(0)
 
@@ -18,36 +16,49 @@ CART = Hash.new(0)
 # + 4    * 1 => 4    | 7.5
 # -----------------
 
-
-
 def welcome
-  puts "> --------------------"
-  puts "> Welcome to Instacart"
-  puts "> --------------------"
-  puts "> In our store today:"
-  PRODUCTS.each do |product, price|
-    puts "> #{product}: #{price}€"
+  puts '> --------------------'
+  puts '> Welcome to Instacart'
+  puts '> --------------------'
+  puts '> In our store today:'
+  PRODUCTS.each do |product, product_data|
+    price = product_data[:price]
+    stock = product_data[:stock]
+    puts "> #{product}: #{price}€ (#{stock} available)"
   end
-  puts "> --------------------"
+  puts '> --------------------'
 end
 
 def quantity_choice
-  puts "> How many?"
-  print "> "
+  puts '> How many?'
+  print '> '
   gets.chomp.to_i
 end
 
+def user_response
+  puts "> Which item? (or 'quit' to checkout)"
+  print '> '
+  gets.chomp
+end
+
+def choose_quantity(product)
+  quantity = quantity_choice
+  quantity_stock = PRODUCTS[product][:stock]
+  if quantity <= quantity_stock
+    CART[product] += quantity
+  else
+    puts "> Sorry, there are only #{quantity_stock} #{product} left.."
+  end
+end
+
 def select_products
-  continue = true
-  while continue
-    puts "> Which item? (or 'quit' to checkout)"
-    print '> '
-    response = gets.chomp
-    if response == 'quit'
-      continue = false
-    elsif PRODUCTS.key? response
-      puts "je dois bien ajouter mon item"
-      CART[response] += quantity_choice
+  loop do
+    response = user_response
+
+    break if response == 'quit'
+
+    if PRODUCTS.key? response
+      choose_quantity(response)
     else
       puts "> Sorry, we don't have #{response} today.."
     end
@@ -57,19 +68,17 @@ end
 def bill
   total = 0
 
-  puts "> -------BILL---------"
+  puts '> -------BILL---------'
   CART.each do |product, quantity|
-    price = PRODUCTS[product]
+    price = PRODUCTS[product][:price]
     sub_total = price * quantity
     total += sub_total
     puts "> #{product}: #{quantity} X #{price}€ = #{sub_total}€"
   end
   puts "> TOTAL: #{total}€"
-  puts "> --------------------"
+  puts '> --------------------'
 end
 
 welcome
 select_products
 bill
-
-
