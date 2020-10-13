@@ -1,5 +1,27 @@
+LIST = ['sockets', 'ruby book', 'macbook pro']
+
+def list
+  LIST.each_with_index do |item, i|
+    puts "> #{i + 1} - #{item}"
+  end
+end
+
+def add
+  puts '> What you want to add?'
+  print '> '
+  item = gets.chomp
+  LIST << item
+end
+
+def delete
+  list
+  puts 'What do you want to delete? (Choose a number)'
+  print '> '
+  index = gets.chomp.to_i - 1
+  LIST.delete_at(index)
+end
+
 def run
-  puts '> Welcome to your Christmas gift list'
   continue = true
 
   while continue
@@ -8,15 +30,16 @@ def run
     action = gets.chomp
 
     case action
-    when 'list'   then puts 'TODO list'
-    when 'add'    then puts 'TODO add'
-    when 'delete' then puts 'TODO delete'
+    when 'list'   then list
+    when 'add'    then add
+    when 'delete' then delete
     when 'quit'   then continue = false
     else
       puts 'Wrong choice...'
     end
   end
-  puts '> Goodbye'
 end
 
+puts '> Welcome to your Christmas gift list'
 run
+puts '> Goodbye'
