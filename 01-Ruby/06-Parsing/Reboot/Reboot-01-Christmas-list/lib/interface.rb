@@ -1,20 +1,27 @@
+require 'csv'
 require 'amazing_print'
 require_relative 'scrapper'
 
-LIST = [
-  {
-    name: 'sockets',
-    marked: true
-  },
-  {
-    name: 'roller',
-    marked: false
-  },
-  {
-    name: 'ruby book',
-    marked: false
-  }
-]
+LIST = []
+
+def save_csv
+  CSV.open('gifts.csv', 'wb') do |csv|
+    csv << ['name', 'marked']
+
+    LIST.each do |item|
+      csv << [item[:name], item[:marked]]
+    end
+  end
+end
+
+def load_csv
+  csv_options = { headers: :first_row }
+  CSV.foreach('gifts.csv', csv_options) do |row|
+    item_name = row['name']
+    marked = row['marked'] == 'true'
+    LIST << { name: item_name, marked: marked }
+  end
+end
 
 def list
   LIST.each_with_index do |item, i|
@@ -29,6 +36,7 @@ def add
   item_name = gets.chomp
   item = { name: item_name, marked: false }
   LIST << item
+  save_csv
 end
 
 def delete
@@ -37,6 +45,7 @@ def delete
   print '> '
   index = gets.chomp.to_i - 1
   LIST.delete_at(index)
+  save_csv
 end
 
 def mark
@@ -45,6 +54,7 @@ def mark
   print '> '
   index = gets.chomp.to_i - 1
   LIST[index][:marked] = true
+  save_csv
 end
 
 def idea
@@ -60,9 +70,11 @@ def idea
   item_name = articles[index]
   item = { name: item_name, marked: false }
   LIST << item
+  save_csv
 end
 
 def run
+  load_csv
   continue = true
 
   while continue
@@ -86,3 +98,4 @@ end
 puts '> Welcome to your Christmas gift list'
 run
 puts '> Goodbye'
+
