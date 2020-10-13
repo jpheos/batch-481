@@ -1,4 +1,5 @@
 require 'amazing_print'
+require_relative 'scrapper'
 
 LIST = [
   {
@@ -46,11 +47,26 @@ def mark
   LIST[index][:marked] = true
 end
 
+def idea
+  puts "What are you looking for on Etsy?"
+  idea = gets.chomp
+  articles = scrapper(idea)
+  articles.each_with_index do |article, i|
+    puts "#{i + 1} - #{article}"
+  end
+  puts 'Pick one to add to your list (give the number)'
+  print '> '
+  index = gets.chomp.to_i - 1
+  item_name = articles[index]
+  item = { name: item_name, marked: false }
+  LIST << item
+end
+
 def run
   continue = true
 
   while continue
-    puts '> Which action [list|add|delete|mark|quit]?'
+    puts '> Which action [list|add|delete|mark|idea|quit]?'
     print '> '
     action = gets.chomp
 
@@ -59,6 +75,7 @@ def run
     when 'add'    then add
     when 'delete' then delete
     when 'mark'   then mark
+    when 'idea'   then idea
     when 'quit'   then continue = false
     else
       puts 'Wrong choice...'
@@ -67,5 +84,5 @@ def run
 end
 
 puts '> Welcome to your Christmas gift list'
-
+run
 puts '> Goodbye'
