@@ -1,15 +1,32 @@
-LIST = ['sockets', 'ruby book', 'macbook pro']
+require 'amazing_print'
+
+LIST = [
+  {
+    name: 'sockets',
+    marked: true
+  },
+  {
+    name: 'roller',
+    marked: false
+  },
+  {
+    name: 'ruby book',
+    marked: false
+  }
+]
 
 def list
   LIST.each_with_index do |item, i|
-    puts "> #{i + 1} - #{item}"
+    mark = item[:marked] ? 'X' : ' '
+    puts "> #{i + 1} - [#{mark}] #{item[:name]}"
   end
 end
 
 def add
   puts '> What you want to add?'
   print '> '
-  item = gets.chomp
+  item_name = gets.chomp
+  item = { name: item_name, marked: false }
   LIST << item
 end
 
@@ -21,11 +38,19 @@ def delete
   LIST.delete_at(index)
 end
 
+def mark
+  list
+  puts 'What do you want to mark? (Choose a number)'
+  print '> '
+  index = gets.chomp.to_i - 1
+  LIST[index][:marked] = true
+end
+
 def run
   continue = true
 
   while continue
-    puts '> Which action [list|add|delete|quit]?'
+    puts '> Which action [list|add|delete|mark|quit]?'
     print '> '
     action = gets.chomp
 
@@ -33,6 +58,7 @@ def run
     when 'list'   then list
     when 'add'    then add
     when 'delete' then delete
+    when 'mark'   then mark
     when 'quit'   then continue = false
     else
       puts 'Wrong choice...'
@@ -41,5 +67,5 @@ def run
 end
 
 puts '> Welcome to your Christmas gift list'
-run
+
 puts '> Goodbye'
