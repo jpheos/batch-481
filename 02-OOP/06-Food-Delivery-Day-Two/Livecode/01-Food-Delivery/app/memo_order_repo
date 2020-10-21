@@ -1,0 +1,32 @@
+ id, a meal, a customer, an employee
+
+
+
+
+ id,meal_id,customer_id,employee_id
+
+
+
+{
+  id: '23'
+  meal_id: '2'
+  delivered: 'true'
+}
+
+
+
+{
+  id: 23
+  meal_id: 2
+  delivered: true
+}
+
+@meal_repository.find(row[:meal_id].to_i)
+
+
+{
+  id: 23
+  meal_id: '2'
+  meal: <Meal:X43567890 @id=2 @price=24 @name='truc'>
+  delivered: true
+}
