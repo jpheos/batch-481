@@ -1,0 +1,23 @@
+<h1>Hello</h1>
+
+<h2>My restaurants: :)</h2>
+
+<ul>
+  <% @restaurants.each do |resto| %>
+    <li>
+      <a href="<%="/restaurants/#{resto.id}" %>" >
+        <%= "#{resto.name} (#{resto.average_rating}) - #{resto.city}"%>
+
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
+<form action="/restaurants" method="post">
+  <input placeholder="Name" type="text" name="name">
+  <input placeholder="City" type="text" name="city">
+  <input placeholder="Specialty" type="text" name="specialty">
+  <input type="submit" value="Create">
+</form>
