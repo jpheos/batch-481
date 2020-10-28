@@ -1,0 +1,57 @@
+.card-content {
+  /*background-color: white;*/
+  /*border: 1px solid rgb(240, 240, 240);*/
+  /*padding: 8px;*/
+  width: 400px;
+}
+
+.card-content-image {
+  background-size: cover;
+  border-radius: 8px;
+  width: 100%;
+  height: 250px;
+}
+
+.card-content .list-inline {
+  color: #B0B0B0;
+  text-align: right;
+}
+
+.card-content .list-inline li {
+  margin-left: 8px;
+}
+
+/* Bevahior of a btn inside of a card (doesn't need to be in `button.css` */
+.card-content .btn {
+  opacity: 0;
+  transition: .3s;
+}
+
+.card-content:hover .btn {
+  opacity: 1;
+}
+
+.card-user {
+  margin-top: 8px;
+  /* intro to flexbox! */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.card-user a {
+  color: #4B94BD;
+}
+
+.card-user a:hover {
+  color: #3F7EA3;
+}
+
+.card-user .avatar {
+  margin-right: 8px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+}
