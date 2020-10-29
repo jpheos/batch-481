@@ -1,0 +1,62 @@
+.card {
+  background-color: white;
+  box-shadow: 2px 3px 12px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.card-header {
+  display: flex;
+}
+
+.card-header-image {
+  width: 50%;
+  background-size: cover;
+  position: relative;
+}
+
+.position-icon {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  color: #ff5d6c;
+  font-size: 18px;
+}
+
+.card-infos {
+  margin: 0px 16px;
+}
+
+.card-infos p {
+  margin: 0 0 24px 0;
+}
+
+.card-infos h2 {
+  margin: 0;
+}
+
+.card-central-image {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  margin: 16px 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer img {
+  width: 30%;
+}
+
+
+
+
+
+
+
+
+
