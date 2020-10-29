@@ -1,0 +1,11 @@
+.banner {
+  background-image: url(../../images/background.jpg);
+  height: 300px;
+  background-size: cover;
+  color: white;
+  padding: 100px 0px;
+}
+
+.banner p {
+  margin-bottom: 32px;
+}
