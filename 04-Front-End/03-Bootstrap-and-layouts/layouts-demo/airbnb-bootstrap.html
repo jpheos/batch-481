@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Bootstrap demo</title>
+
+    <!-- Need to read device screen width (Bootstrap) -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap & Fontawesome CSS only! -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+  </head>
+  <body>
+
+    <div class="border-bottom p-3">
+      <div class="container d-flex justify-content-between">
+      <img src="images/logo.png" alt="logo" width="40px">
+      <a href="#" class="btn btn-primary">Login</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-12 col-lg-8">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="images/flat.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="images/bedroom.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="images/bathroom.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+
+          <h1>Lovely flat in London</h1>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Iusto amet voluptates incidunt sed! Ratione, provident? Dolorem fugit debitis quos enim quo, rerum ducimus nemo animi eveniet impedit quod blanditiis atque.</p>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <form action="#">
+            <label for="message">Message</label>
+            <input type="text" class="form-control" id="message" placeholder="Write your message">
+
+            <label for="checkin">Date of arrival</label>
+            <input type="date" class="form-control" id="checkin">
+
+            <label for="checkout">Date of departure</label>
+            <input type="date" class="form-control" id="checkout">
+
+            <input type="submit" value="Book this flat" class="btn btn-success mt-3 w-100">
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Popper.js (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JavaScript library-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
