@@ -1,0 +1,17 @@
+<h1>Les animaux</h1>
+
+
+<ul>
+  <% @pets.each do |pet| %>
+    <li>
+      <%= link_to pet.name, pet_path(pet) %>
+      <%= link_to icon('fas', 'trash'), pet_path(pet), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+
+<p>
+  <%= link_to "Ajouter un animal perdu :-(", new_pet_path %>
+</p>
+
