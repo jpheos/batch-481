@@ -1,0 +1,9 @@
+<div class="card-plant">
+  <img class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= plant.image_url %>');">
+  <div class="card-plant-infos">
+    <div>
+      <h2><%= plant.name %></h2>
+    </div>
+  </div>
+  <%= link_to '+', plant_path(plant), method: :delete, data: { confirm: 'Sure ?' }, class: 'remove-link' %>
+</div>
