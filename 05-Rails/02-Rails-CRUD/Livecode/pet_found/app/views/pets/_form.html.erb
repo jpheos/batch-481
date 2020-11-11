@@ -1,0 +1,13 @@
+<%= simple_form_for pet do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :found_on %>
+  <%= f.input :species, collection: Pet::SPECIES %>
+
+  <% if pet.persisted? %>
+    <%= f.submit 'Mettre à jour', class: 'btn btn-primary btn-block'%>
+  <% else %>
+    <%= f.submit 'Ajouter', class: 'btn btn-primary btn-block'%>
+  <% end %>
+
+<% end %>

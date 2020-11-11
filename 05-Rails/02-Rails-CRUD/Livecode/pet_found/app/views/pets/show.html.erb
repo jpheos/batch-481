@@ -1,0 +1,15 @@
+<div class="container">
+  <h1><%= @pet.name %></h1>
+
+  <p><%= link_to "éditer", edit_pet_path(@pet) %> </p>
+
+  <ul>
+    <li>Adresse: <%= @pet.address %> </li>
+    <li>Espèce: <%= @pet.species %> </li>
+    <li>Trouvé le: <%= @pet.found_on %> </li>
+  </ul>
+
+
+  <%= link_to "voir tous les animaux", pets_path %>
+</div>
+
