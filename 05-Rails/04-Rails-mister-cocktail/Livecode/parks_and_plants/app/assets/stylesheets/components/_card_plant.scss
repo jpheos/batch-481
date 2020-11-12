@@ -1,0 +1,78 @@
+.card-plant {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 10px;
+  position: relative;
+}
+
+.card-plant > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-plant h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-plant p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-plant .card-plant-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-plant-infos .card-plant-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-plant .remove-link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-weight: lighter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 40px;
+  height: 30px;
+  width: 30px;
+  transform: rotate(45deg);
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.card-plant .card-tags {
+  position: absolute;
+  top: 23px;
+  left: 10px;
+  width: 66%;
+
+  span, a {
+    background: white;
+    padding: 2px 4px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+  }
+}

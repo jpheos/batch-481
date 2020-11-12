@@ -1,0 +1,17 @@
+<div class="card-plant">
+  <div class="card-tags">
+    <% plant.tags.each do |tag| %>
+      <span>
+        <%= tag.name %>
+      </span>
+    <% end %>
+    <%= link_to '+', new_plant_plant_tag_path(plant) %>
+  </div>
+  <img class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= plant.image_url %>');">
+  <div class="card-plant-infos">
+    <div>
+      <h2><%= plant.name %></h2>
+    </div>
+  </div>
+  <%= link_to '+', plant_path(plant), method: :delete, data: { confirm: 'Sure ?' }, class: 'remove-link' %>
+</div>

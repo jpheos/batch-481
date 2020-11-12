@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="col-6 offset-3">
+    <h1>Ajouter un tag à <%= @plant.name %> </h1>
+
+    <%= simple_form_for([@plant, @plant_tag]) do |f| %>
+      <%= f.association :tag, input_html: {multiple: true, class: 'multiselect'}, include_hidden: false  %>
+
+      <%= f.submit 'Ajouter un tag', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>

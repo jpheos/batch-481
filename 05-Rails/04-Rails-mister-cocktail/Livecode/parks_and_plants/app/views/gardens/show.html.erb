@@ -1,0 +1,21 @@
+<%= render 'shared/banner', garden: @garden %>
+
+
+<div class="container p-3">
+  <div class="row">
+    <% @garden.plants.each do |plant| %>
+    <div class="col-4">
+      <%= render 'shared/card_plant', plant: plant %>
+    </div>
+    <% end %>
+  </div>
+  <div class="row justify-content-center p-5">
+    <%= simple_form_for [@garden, @plant], wrapper: :horizontal_form do |f| %>
+      <%= f.input :name %>
+      <%= f.input :image_url %>
+      <%= f.submit class: 'btn btn-primary w-100' %>
+    <% end %>
+  </div>
+  <%= link_to 'Edit', edit_garden_path(@garden), class: 'btn btn-outline-primary' %>
+  <%= link_to 'Back', gardens_path, class: 'btn btn-outline-secondary' %>
+</div>
