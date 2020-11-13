@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @article.body %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
+
+<% @article.photos.each do |photo| %>
+  <%= cl_image_tag(photo.key, height: 200, width: 200, crop: :fill) %>
+<% end %>
+
+<!-- ## Previous code with one photo attached to the model-->
+<!--   <div class='toto' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%#= cl_image_path @article.photo.key, height: 300, width: 400, crop: :fill %>')">
+    <p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Nobis quas dicta ad aliquid corrupti, officia voluptate esse, voluptates accusamus iusto doloremque exercitationem! Possimus asperiores tempore culpa voluptates ad debitis odio. </p>
+  </div> -->
+
