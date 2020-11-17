@@ -1,0 +1,23 @@
+toto
+total 736
+-rw-r--r--    1 jpheos  staff   1.9K Nov 17 09:19 Gemfile
+-rw-r--r--    1 jpheos  staff   5.8K Nov 17 09:19 Gemfile.lock
+-rw-r--r--    1 jpheos  staff   169B Nov 17 09:08 README.md
+-rw-r--r--    1 jpheos  staff   227B Nov 17 09:08 Rakefile
+drwxr-xr-x   12 jpheos  staff   384B Nov 17 09:20 app
+-rw-r--r--    1 jpheos  staff   1.7K Nov 17 09:08 babel.config.js
+drwxr-xr-x   10 jpheos  staff   320B Nov 17 09:08 bin
+drwxr-xr-x   18 jpheos  staff   576B Nov 17 09:08 config
+-rw-r--r--    1 jpheos  staff   130B Nov 17 09:08 config.ru
+drwxr-xr-x    5 jpheos  staff   160B Nov 17 09:09 db
+drwxr-xr-x    5 jpheos  staff   160B Nov 17 09:09 lib
+-rw-r--r--    1 jpheos  staff     5B Nov 17 10:17 list
+drwxr-xr-x    4 jpheos  staff   128B Nov 17 09:08 log
+drwxr-xr-x  776 jpheos  staff    24K Nov 17 09:09 node_modules
+-rw-r--r--    1 jpheos  staff   415B Nov 17 09:09 package.json
+-rw-r--r--    1 jpheos  staff   224B Nov 17 09:08 postcss.config.js
+drwxr-xr-x   10 jpheos  staff   320B Nov 17 09:10 public
+drwxr-xr-x    3 jpheos  staff    96B Nov 17 09:08 storage
+drwxr-xr-x    5 jpheos  staff   160B Nov 17 09:27 test
+drwxr-xr-x    9 jpheos  staff   288B Nov 17 09:09 tmp
+-rw-r--r--    1 jpheos  staff   325K Nov 17 09:09 yarn.lock
