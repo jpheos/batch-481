@@ -15,7 +15,7 @@
     <% @restaurants.each do |restaurant| %>
       <tr>
         <td><%= restaurant.name %></td>
-        <td><%= restaurant.user.email %></td>
+        <td> <%= render 'shared/card_user' %></td>
         <td><%= link_to 'Show', restaurant if policy(restaurant).show?  %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) if policy(restaurant).update? %></td>
         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } if policy(restaurant).destroy?  %></td>
